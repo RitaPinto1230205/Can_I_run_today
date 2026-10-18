@@ -1,0 +1,17 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: correhoje-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+
+  # Day 2: PostgreSQL for the clean data goes here.
+
+volumes:
+  mongo-data:
